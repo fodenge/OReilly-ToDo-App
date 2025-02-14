@@ -2,6 +2,7 @@ package com.oreilly.springboot.mytodoapp.hello;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -11,6 +12,7 @@ public class SayHelloController {
     public String sayHello(){
         return "Hello! Have a good day ahead";
     }
+
     @GetMapping("say-hello-html")
     @ResponseBody
     public String sayHelloHtml(){
@@ -26,5 +28,10 @@ public class SayHelloController {
         sb.append("</body>");
         sb.append("</html>");
         return sb.toString();
+    }
+
+    @RequestMapping ("say-hello-thymeleaf")
+    public String sayHelloJsp(){
+        return "helloHTML";
     }
 }
