@@ -13,9 +13,7 @@ public class LoginController {
 
     //http://localhost:8080/login?name=XYZ
     @RequestMapping("login")
-    public String goToLogin(@RequestParam String name, Model model){
-        model.addAttribute("name",name);
-        logger.info("The request param is {}", name);
+    public String goToLogin(){
         return "login";
     }
 }

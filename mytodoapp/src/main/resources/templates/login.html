@@ -5,6 +5,11 @@
     <title>Login Page</title>
 </head>
 <body>
-<p>Welcome to the Login Page, <span th:text="${name}">Guest</span>!</p>
+<p>Welcome to the Login Page!
+<form method="post">
+    Name: <input type="text" name="name"><br>
+    Password: <input type="password" name="passwrod">
+    <input type="submit">
+</form>
 </body>
 </html>
