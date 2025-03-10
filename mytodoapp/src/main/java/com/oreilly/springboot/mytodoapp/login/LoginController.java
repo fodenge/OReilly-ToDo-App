@@ -2,6 +2,7 @@ package com.oreilly.springboot.mytodoapp.login;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
+    @Autowired
+    private AuthenticationService authenticationService;
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     //http://localhost:8080/login?name=XYZ
@@ -20,8 +23,12 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String goToWelcomePage(@RequestParam String name, @RequestParam String password, Model model){
-        model.addAttribute("name", name);
-        model.addAttribute("password",password);
-        return "welcome";
+        if (authenticationService.authenticate(name, password)){
+            model.addAttribute("name", name);
+            model.addAttribute("password",password);
+            return "welcome";
+        }
+        model.addAttribute("errorMessage","Invalid Credentials! Please try again.");
+        return "login";
     }
 }
