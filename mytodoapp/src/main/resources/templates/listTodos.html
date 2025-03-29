@@ -5,8 +5,28 @@
     <title>List Todos Page</title>
 </head>
 <body>
-<div>Welcome to ToDo Application</div>
-<p>Hello, <span th:text="${name}">Guest</span>!</p>
-<div>My Todos are <span th:text="${todos}">Guest</span></div>
+<div><h1>Welcome to ToDo Application</h1></div>
+<div>Hello, <span th:text="${name}">Guest</span>!</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Target Date</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Use Thymeleaf for iteration -->
+    <tr th:each="todo : ${todos}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.description}"></td>
+        <td th:text="${todo.targetDate}"></td>
+        <td th:text="${todo.done}"></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
