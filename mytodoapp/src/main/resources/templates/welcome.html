@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome Page</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}">
 </head>
 <body>
-<h2>Welcome to ToDo Application</h2>
-<p>Hello, <span th:text="${name}">Guest</span>!</p>
-<a href="list-todos">Manage</a> your ToDo.
+<div class="container">
+    <h2>Welcome to ToDo Application</h2>
+    <p>Hello, <span th:text="${name}">Guest</span>!</p>
+    <a href="list-todos">Manage</a> your ToDo.
+</div>
+
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
