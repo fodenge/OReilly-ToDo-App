@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Todo Page</title>
+
+    <!-- Load Bootstrap dynamically from WebJars -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Enter ToDo Details</h1>
+
+    <form th:action="@{/add-todo}" th:object="${todo}" method="post">
+        <label>Description:</label>
+        <input type="text" th:field="*{description}" class="form-control" required>
+        <input type="hidden" th:field="*{id}" class="form-control">
+        <input type="hidden" th:field="*{done}" class="form-control">
+        <br>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
