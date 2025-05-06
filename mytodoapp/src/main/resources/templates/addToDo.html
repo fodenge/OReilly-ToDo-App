@@ -14,16 +14,15 @@
 
     <form th:action="@{/add-todo}" th:object="${todo}" method="post">
         <label>Description:</label>
-        <label>
-            <input type="text" th:field="*{description}" class="form-control" required>
-        </label>
-         <div class="text-danger">Enter at least 10 characters</div>
+        <input type="text" th:field="*{description}" class="form-control" required>
+    
+        <!-- Display validation error -->
         <div th:if="${#fields.hasErrors('description')}" class="text-danger">
             <span th:errors="*{description}"></span>
         </div>
-
-        <input type="hidden" th:field="*{id}" class="form-control">
-        <input type="hidden" th:field="*{done}" class="form-control">
+    
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{done}">
         <br>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>

@@ -20,15 +20,20 @@
             <th>Description</th>
             <th>Target Date</th>
             <th>Status</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="todo : ${todos}">
-            <td th:text="${todo.id}"></td>
-            <td th:text="${todo.description}"></td>
-            <td th:text="${todo.targetDate}"></td>
-            <td th:text="${todo.done}"></td>
-        </tr>
+            <tr th:each="todo : ${todos}">
+                <td th:text="${todo.id}"></td>
+                <td th:text="${todo.description}"></td>
+                <td th:text="${todo.targetDate}"></td>
+                <td th:text="${todo.done}"></td>
+                <td>
+                    <a th:href="@{/delete-todo(id=${todo.id})}" class="btn btn-warning">DELETE</a>
+                </td>
+            </tr>
+            
         </tbody>
     </table>
     <a href="add-todo" class="btn btn-success">Add ToDo</a>
