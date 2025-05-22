@@ -12,7 +12,7 @@
 <div class="container">
     <h1>Enter ToDo Details</h1>
 
-    <form th:action="@{/add-todo}" th:object="${todo}" method="post">
+    <form th:action="${todo.id == 0} ? @{/add-todo} : @{/update-todo}" th:object="${todo}" method="post">
         <label>Description:</label>
         <input type="text" th:field="*{description}" class="form-control" required>
     

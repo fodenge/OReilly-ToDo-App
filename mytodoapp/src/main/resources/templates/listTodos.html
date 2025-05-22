@@ -21,6 +21,7 @@
             <th>Target Date</th>
             <th>Status</th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -30,7 +31,10 @@
                 <td th:text="${todo.targetDate}"></td>
                 <td th:text="${todo.done}"></td>
                 <td>
-                    <a th:href="@{/delete-todo(id=${todo.id})}" class="btn btn-warning">DELETE</a>
+                    <a th:href="@{/delete-todo(id=${todo.id})}" class="btn btn-warning">Delete</a>
+                </td>
+                <td>
+                    <a th:href="@{/update-todo(id=${todo.id})}" class="btn btn-success">UPDATE</a>
                 </td>
             </tr>
             
