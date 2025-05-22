@@ -20,7 +20,10 @@
         <div th:if="${#fields.hasErrors('description')}" class="text-danger">
             <span th:errors="*{description}"></span>
         </div>
-    
+        
+        <label>Target Date:</label>
+        <input type="text" th:field="*{targetDate}" class="form-control" required>
+
         <input type="hidden" th:field="*{id}">
         <input type="hidden" th:field="*{done}">
         <br>

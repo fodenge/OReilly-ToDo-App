@@ -41,7 +41,7 @@ public class ToDoController {
             return "redirect:add-todo";
         }
         String username = (String) model.get("name");
-        toDoService.addToDo(username, todo.getDescription(), LocalDate.now().plusYears(1), false);
+        toDoService.addToDo(username, todo.getDescription(), todo.getTargetDate(), false);
         return "redirect:list-todos";
     }
     @RequestMapping(value = "delete-todo")
