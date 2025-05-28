@@ -9,6 +9,26 @@
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">ToDoApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
 <div class="container">
     <h1 class="text-primary">Welcome to ToDo Application</h1>
     <p>Hello, <span th:text="${name}">Guest</span>!</p>
@@ -25,21 +45,21 @@
         </tr>
         </thead>
         <tbody>
-            <tr th:each="todo : ${todos}">
-                <td th:text="${todo.id}"></td>
-                <td th:text="${todo.description}"></td>
-                <td th:text="${todo.targetDate}"></td>
-                <td th:text="${todo.done}"></td>
-                <td>
-                    <a th:href="@{/delete-todo(id=${todo.id})}" class="btn btn-warning">Delete</a>
-                </td>
-                <td>
-                    <a th:href="@{/update-todo(id=${todo.id})}" class="btn btn-success">UPDATE</a>
-                </td>
-            </tr>
-            
+        <tr th:each="todo : ${todos}">
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.description}"></td>
+            <td th:text="${todo.targetDate}"></td>
+            <td th:text="${todo.done}"></td>
+            <td>
+                <a th:href="@{/delete-todo(id=${todo.id})}" class="btn btn-warning">Delete</a>
+            </td>
+            <td>
+                <a th:href="@{/update-todo(id=${todo.id})}" class="btn btn-success">UPDATE</a>
+            </td>
+        </tr>
         </tbody>
     </table>
+
     <a href="add-todo" class="btn btn-success">Add ToDo</a>
 </div>
 

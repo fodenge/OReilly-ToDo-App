@@ -27,7 +27,7 @@ public class LoginController {
     public String goToWelcomePage(@RequestParam String name, @RequestParam String password, Model model){
         if (authenticationService.authenticate(name, password)){
             model.addAttribute("name", name);
-            model.addAttribute("password",password);
+            model.addAttribute("password", password);
             return "welcome";
         }
         model.addAttribute("errorMessage","Invalid Credentials! Please try again.");
