@@ -6,14 +6,34 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}">
 </head>
 <body>
-<div class="container">
-    <h2>Welcome to the Login Page!</h2>
-    <pre><span th:text="${errorMessage}"></span></pre>
-    <form method="post">
-        Name: <input type="text" name="name">
-        Password: <input type="password" name="password">
-        <input type="submit">
-    </form>
+
+<!-- Centered Form Container -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
+        <h3 class="text-center mb-4 text-primary">Login to ToDo App</h3>
+
+        <!-- Error message -->
+        <div th:if="${errorMessage}" class="alert alert-danger text-center" role="alert">
+            <span th:text="${errorMessage}"></span>
+        </div>
+
+        <!-- Login Form -->
+        <form method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Username</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your username" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
